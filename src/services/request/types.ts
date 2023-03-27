@@ -1,10 +1,10 @@
 import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 
-export interface OPSRequestConfig<T = AxiosResponse> extends AxiosRequestConfig {
-  interceptors?: OPSInterceptors<T>
+export interface YRequestConfig<T = AxiosResponse> extends AxiosRequestConfig {
+  interceptors?: YInterceptors<T>
 }
 
-export interface OPSInterceptors<T = AxiosResponse> {
+export interface YInterceptors<T = AxiosResponse> {
   requestSuccess?: (config: AxiosRequestConfig) => any
   requestFailure?: (err: any) => any
   responseSuccess?: (res: T) => T

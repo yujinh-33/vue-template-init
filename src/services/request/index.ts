@@ -1,11 +1,11 @@
 import axios from 'axios'
 import type { AxiosInstance } from 'axios'
-import type { OPSRequestConfig } from './types'
+import type { YRequestConfig } from './types'
 
-class OPSRequest {
+class YRequest {
   instance: AxiosInstance
 
-  constructor(config: OPSRequestConfig) {
+  constructor(config: YRequestConfig) {
     this.instance = axios.create(config)
 
     this.instance.interceptors.request.use(
@@ -29,7 +29,7 @@ class OPSRequest {
     )
   }
 
-  request<T = any>(config: OPSRequestConfig<T>) {
+  request<T = any>(config: YRequestConfig<T>) {
     if (config.interceptors?.requestSuccess) {
       config = config.interceptors.requestSuccess(config)
     }
@@ -45,21 +45,21 @@ class OPSRequest {
     })
   }
 
-  get<T = any>(config: OPSRequestConfig<T>) {
+  get<T = any>(config: YRequestConfig<T>) {
     return this.request<T>({ ...config, method: 'GET' })
   }
 
-  post<T = any>(config: OPSRequestConfig<T>) {
+  post<T = any>(config: YRequestConfig<T>) {
     return this.request<T>({ ...config, method: 'POST' })
   }
 
-  delete<T = any>(config: OPSRequestConfig<T>) {
+  delete<T = any>(config: YRequestConfig<T>) {
     return this.request<T>({ ...config, method: 'DELETE' })
   }
 
-  patch<T = any>(config: OPSRequestConfig<T>) {
+  patch<T = any>(config: YRequestConfig<T>) {
     return this.request<T>({ ...config, method: 'PATCH' })
   }
 }
 
-export default OPSRequest
+export default YRequest

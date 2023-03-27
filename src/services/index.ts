@@ -1,7 +1,7 @@
-import OPSRequest from './request'
+import YRequest from './request'
 import { URL, TIMEOUT } from './config'
 
-export const yRequest = new OPSRequest({
+export const yRequest = new YRequest({
   baseURL: URL,
   timeout: TIMEOUT,
 })
